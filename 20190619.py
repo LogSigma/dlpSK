@@ -34,3 +34,5 @@ gfit= gmodel.fit(df_train_x, df_train_y)
 g_df_test_pre = pd.DataFrame(gfit.predict(df_test_x))
 print('R2: ',r2_score(df_test_y, g_df_test_pre))
 print('MSE: ',mean_squared_error(df_test_y, g_df_test_pre))
+###R2:  0.6236543671937749
+###MSE:  18.32816473236871
