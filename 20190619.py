@@ -7,7 +7,7 @@ df = pd.read_csv('D:/DataSet_accuracy.csv', sep=",")
 df_t = df
 df_t['END_TM'] = pd.to_datetime(df_t['END_TM'], format='%Y-%m-%d %p %H:%M:%S')
 
-df_t['END_TM_INT'] = pd.to_numeric(df_t['END_TM']-df_t['END_TM'][4])/1000000000
+df_t['END_TM'] = (pd.to_numeric(df_t['END_TM']-df_t['END_TM'][4])/1000000000).astype(int)
 
 df_t = df_t.set_index('ID')
 
@@ -15,7 +15,8 @@ df_t = pd.get_dummies(df_t, columns=['A','B'])
 
 df_m1 = df_t[df_t['Validation']==0]
 
-df_m1 = df_m1.T.fillna(df_m1.mean(axis=1)).T
+#df_m1 = df_m1.T.fillna(df_m1.mean(axis=1)).T
+df_m1 = df_m1.fillna(df_m1.median())
 
 df_m1_y = df_m1['Y']
 
