@@ -31,11 +31,11 @@ df_train_x = df_train.drop(['Y','END_TM','Validation'], axis=1)
 df_test_x = df_test.drop(['Y','END_TM','Validation'],axis=1)
 
 #%%
-model = GradientBoostingRegressor(n_estimators = 500, random_state=0, max_depth =5)
+model = GradientBoostingRegressor(n_estimators = 200, random_state=0, max_depth =5)
 fit = model.fit(df_train_x, df_train_y)
 g_df_test_pre = pd.DataFrame(fit.predict(df_test_x))
 print('R2: ',r2_score(df_test_y, g_df_test_pre))
 print('MSE: ',mean_squared_error(df_test_y, g_df_test_pre))
 
-###R2:  0.6236543671937749
-###MSE:  18.32816473236871
+##R2:  -0.04904487606853736
+##MSE:  68.31041275044969
