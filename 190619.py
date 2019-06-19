@@ -39,11 +39,10 @@ aa=sns.factorplot('A','Y',data=df_t,size=4,aspect=2)
 plt.rc('font',family='Malgun Gothic')
 aa=sns.factorplot('B','Y',data=df_t,size=4,aspect=2)
 
-i=1
 for i in range(1,117):
 	plt.scatter(df_t['END_TM_INT'], df_t['C{0}'.format(i)])
-    plt.title('C{0}'.format(i))
-    plt.show()
+	plt.title('C{0}'.format(i))
+	plt.show()
 
 #%%
 #데이터 전처리
